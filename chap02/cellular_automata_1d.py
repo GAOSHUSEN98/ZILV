@@ -37,10 +37,7 @@ while visualizer:  # visualizerはウィンドウが閉じられるとFalseを�
         #     RULEの６番目のビットが１ならば、次の状態は１となるので、
         #     RULEをneighbor_cell_code分だけビットシフトして１と論理積をとる。
         neighbor_cell_code = 2**2 * l + 2**1 * c + 2**0 * r
-        if (RULE >> neighbor_cell_code) & 1:
-            next_state[i] = 1
-        else:
-            next_state[i] = 0
+        next_state[i] = (RULE >> neighbor_cell_code) & 1
     # 最後に入れ替え
     state, next_state = next_state, state
     # 表示をアップデート
